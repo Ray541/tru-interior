@@ -90,7 +90,7 @@ const Layout = () => {
           <ProgressBar />
           <CustomCursor />
           <Header />
-          <ModeToggle className="fixed bottom-3 right-7 active:scale-90 z-5" />
+          <ModeToggle className="hidden lg:flex fixed bottom-3 right-7 active:scale-90 z-5" />
           <Main>
             <Home />
           </Main>
