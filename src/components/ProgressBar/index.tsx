@@ -26,7 +26,7 @@ const ProgressBar = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-1 bg-transparent z-5">
+    <div className="fixed top-0 left-0 w-full h-1 bg-background backdrop-blur-xs backdrop-saturate-150 z-50">
       <div ref={progressRef} className="h-full bg-foreground origin-left" style={{ width: "0%" }} />
     </div>
   );
