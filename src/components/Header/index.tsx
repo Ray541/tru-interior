@@ -1,7 +1,15 @@
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/hooks/use-theme";
 import { handleCursorEnter, handleCursorLeave } from "@/utils/gsapUtils";
-import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import lightLogo from "/light-small-logo.png";
 import darkLogo from "/dark-small-logo.png";
@@ -19,7 +27,7 @@ const Header = () => {
     { id: 3, label: "services", path: "services" },
     { id: 4, label: "process", path: "process" },
     { id: 5, label: "ongoing projects", path: "on-going-projects" },
-    { id: 5, label: "portfolio", path: "portfolio" },
+    { id: 6, label: "portfolio", path: "portfolio" },
     { id: 7, label: "contact", path: "contact" },
   ];
 
@@ -70,6 +78,8 @@ const Header = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-background border border-border">
+              <SheetTitle></SheetTitle>
+              <SheetDescription></SheetDescription>
               <SheetHeader>
                 <a href="#home" className="block w-34 mx-auto mb-5">
                   <img
