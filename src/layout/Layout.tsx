@@ -8,7 +8,6 @@ import Header from "@/components/Header";
 import { Main } from "./Main/Main";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import CustomCursor from "@/components/CustomCursor";
 import { ModeToggle } from "@/components/mode-toggle";
 import Home from "@/components/Home";
 
@@ -88,7 +87,6 @@ const Layout = () => {
         <>
           <ReactLenis root options={options} ref={lenisRef} />
           <ProgressBar />
-          <CustomCursor />
           <Header />
           <ModeToggle className="hidden lg:flex fixed bottom-3 right-7 active:scale-90 z-5" />
           <Main>
