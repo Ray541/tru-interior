@@ -22,7 +22,7 @@ const Footer = () => {
   return (
     <>
       <footer className="bg-background py-7 px-3 text-center text-muted-foreground border-t border-border">
-        <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-5 justify-center md:justify-between items-center max-w-5xl mx-auto">
+        <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-5 justify-center md:justify-between items-center">
           <a
             href="#home"
             className={"w-44"}
