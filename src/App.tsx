@@ -1,5 +1,11 @@
+import { ThemeProvider } from "./components/theme-provider";
+
 function App() {
-  return <div>App</div>;
+  return (
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <div>App</div>
+    </ThemeProvider>
+  );
 }
 
 export default App;
