@@ -1,11 +1,9 @@
-import { ThemeProvider } from "./components/theme-provider";
+import { useTheme } from "./hooks/useTheme";
+import Layout from "./layout/Layout";
 
 function App() {
-  return (
-    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-      <div>App</div>
-    </ThemeProvider>
-  );
+  useTheme();
+  return <Layout />;
 }
 
 export default App;
