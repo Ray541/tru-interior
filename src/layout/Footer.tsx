@@ -40,10 +40,18 @@ const Footer = () => {
           </p>
         </div>
       </footer>
-      <div className="hidden w-full border-t border-border xl:flex items-center justify-center">
-        <p className="w-full text-muted-foreground text-center xl:text-[10rem] font-black">
-          TRU INTERIORS
-        </p>
+      <div
+        className="hidden w-full md:flex items-center justify-center bg-fixed bg-cover bg-center"
+        style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1517059224940-d4af9eec41b7")',
+          backgroundColor: "var(--background)",
+        }}
+      >
+        <div className="w-full flex items-center justify-center bg-black/30 backdrop-brightness-50 shadow py-10">
+          <p className="text-background dark:text-foreground text-center md:text-[6rem] xl:text-[10rem] font-black drop-shadow-lg">
+            TRU INTERIORS
+          </p>
+        </div>
       </div>
     </>
   );
