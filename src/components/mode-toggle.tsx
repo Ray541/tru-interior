@@ -1,22 +1,29 @@
-import { useTheme } from "@/hooks/use-theme";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Laptop2 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { useSelector, useDispatch } from "react-redux";
+import type { RootState } from "@/store/store";
+import { setTheme, type Theme } from "@/store/slice/themeSlice";
 
 type ModeToggleProps = {
   className?: string;
 };
 
 export function ModeToggle({ className }: ModeToggleProps) {
-  const { theme, setTheme } = useTheme();
+  const theme = useSelector((state: RootState) => state.theme.theme);
+  const dispatch = useDispatch();
 
-  const toggleTheme = () => {
-    if (theme === "light") setTheme("dark");
-    else if (theme === "dark") setTheme("system");
-    else setTheme("light");
+  const updateTheme = (value: Theme) => {
+    dispatch(setTheme(value));
   };
 
-  const getIcon = (theme: string) => {
+  const toggleTheme = () => {
+    if (theme === "light") updateTheme("dark");
+    else if (theme === "dark") updateTheme("system");
+    else updateTheme("light");
+  };
+
+  const getIcon = (theme: Theme) => {
     switch (theme) {
       case "light":
         return <Moon />;
@@ -29,7 +36,7 @@ export function ModeToggle({ className }: ModeToggleProps) {
     }
   };
 
-  const getToolTip = (theme: string) => {
+  const getToolTip = (theme: Theme) => {
     switch (theme) {
       case "light":
         return "Switch to Dark Theme";
