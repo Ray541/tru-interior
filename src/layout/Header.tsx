@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "p-3 border-b border-border sticky top-0 bg-background/50 backdrop-blur-xs backdrop-saturate-150"
+        "p-3 border-b border-border sticky top-0 bg-background/50 backdrop-blur-md backdrop-saturate-150"
       )}
     >
       <div
