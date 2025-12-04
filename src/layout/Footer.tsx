@@ -5,6 +5,7 @@ import darkLogo from "../../src/assets/images/dark-small-logo.png";
 import { Button } from "@/components/ui/button";
 import type { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
+import footerBg from "../assets/images/footer-bg.jpg";
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -41,14 +42,13 @@ const Footer = () => {
         </div>
       </footer>
       <div
-        className="hidden w-full md:flex items-center justify-center bg-fixed bg-cover bg-center"
+        className="flex items-center justify-center bg-fixed bg-cover bg-center"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1517059224940-d4af9eec41b7")',
-          backgroundColor: "var(--background)",
+          backgroundImage: `url(${footerBg})`,
         }}
       >
         <div className="w-full flex items-center justify-center bg-black/30 backdrop-brightness-50 shadow py-10">
-          <p className="text-background dark:text-foreground text-center md:text-[6rem] xl:text-[10rem] font-black drop-shadow-lg">
+          <p className="text-background dark:text-foreground text-center text-3xl sm:text-5xl md:text-7xl xl:text-9xl font-black drop-shadow-lg">
             TRU INTERIORS
           </p>
         </div>
