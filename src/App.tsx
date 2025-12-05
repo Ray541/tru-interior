@@ -1,9 +1,12 @@
+import { BrowserRouter } from "react-router-dom";
 import { useTheme } from "./hooks/useTheme";
-import Layout from "./layout/Layout";
+import AppRoutes from "./routes";
 
-function App() {
+export default function App() {
   useTheme();
-  return <Layout />;
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
 }
-
-export default App;
