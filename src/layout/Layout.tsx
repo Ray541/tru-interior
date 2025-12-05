@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Outlet } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ReactLenis, type LenisRef } from "lenis/react";
@@ -6,7 +7,6 @@ import Preloader from "@/components/pre-loader.js";
 import ProgressBar from "@/components/progress-bar.js";
 import Header from "./Header.js";
 import Main from "./Main.js";
-import Home from "@/sections/Home.js";
 import { ModeToggle } from "@/components/mode-toggle.js";
 import Footer from "./Footer.js";
 
@@ -19,7 +19,7 @@ const options = {
   easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
 };
 
-const Layout = () => {
+export default function Layout() {
   const [isLoaded, setIsLoaded] = useState(false);
   const lenisRef = useRef<LenisRef>(null);
 
@@ -86,15 +86,13 @@ const Layout = () => {
           <ReactLenis root options={options} ref={lenisRef} />
           <ProgressBar />
           <Header />
-          <Main className="p-2 sm:p-3 md:p-4">
-            <Home />
+          <Main className="p-2 sm:p-3 md:p-5">
+            <Outlet />
           </Main>
-          <ModeToggle className="fixed bottom-5 right-5" />
+          <ModeToggle className="fixed bottom-5 right-5 z-1" />
           <Footer />
         </>
       )}
     </>
   );
-};
-
-export default Layout;
+}
