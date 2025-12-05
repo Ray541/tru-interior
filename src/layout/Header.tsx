@@ -16,49 +16,47 @@ import { useSelector } from "react-redux";
 import type { RootState } from "@/store/store";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
+import { Link } from "react-router-dom";
+import { GsapNavLink } from "@/components/gsap-components/gsap-nav-link";
 
-const Header = () => {
+export default function Header() {
   const { theme } = useSelector((state: RootState) => state.theme);
   const [isOpen, setIsOpen] = useState(false);
 
   const navs = [
-    { id: 1, label: "home", path: "home" },
-    { id: 2, label: "about us", path: "about-us" },
-    { id: 3, label: "services", path: "services" },
-    { id: 4, label: "process", path: "process" },
-    { id: 5, label: "ongoing projects", path: "on-going-projects" },
-    { id: 6, label: "portfolio", path: "portfolio" },
-    { id: 7, label: "contact", path: "contact" },
+    { label: "home", path: "" },
+    { label: "about us", path: "about-us" },
+    { label: "services", path: "services" },
+    { label: "process", path: "process" },
+    { label: "ongoing projects", path: "on-going-projects" },
+    { label: "portfolio", path: "portfolio" },
+    { label: "contact", path: "contact" },
   ];
 
   return (
     <header
       className={cn(
-        "p-3 border-b border-border sticky top-0 bg-background/50 backdrop-blur-md backdrop-saturate-150"
+        "p-3 border-b border-border sticky top-0 bg-background/70 backdrop-blur-sm backdrop-saturate-150"
       )}
     >
       <div
         className={cn("w-full max-w-340 mx-auto flex items-center justify-between md:border-none")}
       >
         {/* Logo */}
-        <a href="#home" className="w-35 md:w-44">
+        <Link to="/" className="w-35 md:w-44">
           <img
             src={theme === "light" ? lightLogo : darkLogo}
             alt="Logo"
             className="w-full h-auto"
           />
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center justify-center gap-5">
           {navs.map(nav => (
-            <a
-              key={nav.id}
-              href={`#${nav.path}`}
-              className="text-primary uppercase font-bold text-sm tracking-wider hover:opacity-80 transition"
-            >
+            <GsapNavLink key={nav.label} to={`/${nav.path}`}>
               {nav.label}
-            </a>
+            </GsapNavLink>
           ))}
         </nav>
 
@@ -73,13 +71,13 @@ const Header = () => {
             <SheetContent side="right" className="bg-background border border-border">
               <SheetHeader>
                 <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
-                <a href="#home" className="block w-34 mx-auto mb-5">
+                <Link to="/" className="block w-34 mx-auto mb-5">
                   <img
                     src={theme === "light" ? lightLogo : darkLogo}
                     alt="Logo"
                     className="w-full h-auto"
                   />
-                </a>
+                </Link>
                 <SheetDescription className="sr-only">
                   Navigation links for the mobile menu.
                 </SheetDescription>
@@ -87,14 +85,9 @@ const Header = () => {
 
               <nav className="flex flex-col items-center gap-5">
                 {navs.map(nav => (
-                  <a
-                    key={nav.id}
-                    href={`#${nav.path}`}
-                    className="text-primary uppercase font-semibold text-sm tracking-wide"
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <GsapNavLink key={nav.label} to={`/${nav.path}`} onClick={() => setIsOpen(false)}>
                     {nav.label}
-                  </a>
+                  </GsapNavLink>
                 ))}
               </nav>
 
@@ -107,6 +100,4 @@ const Header = () => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}

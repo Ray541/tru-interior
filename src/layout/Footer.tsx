@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FaLinkedinIn, FaFacebook, FaInstagram } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 import lightLogo from "../../src/assets/images/light-small-logo.png";
@@ -15,7 +16,7 @@ const SOCIALS = [
   { social: "Instagram", icon: <FaInstagram /> },
 ];
 
-const Footer = () => {
+export default function Footer() {
   const { theme } = useSelector((state: RootState) => state.theme);
 
   const handleNameClick = () => window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -24,9 +25,9 @@ const Footer = () => {
     <>
       <footer className="bg-background py-7 px-3 text-center text-muted-foreground border-t border-border">
         <div className="w-full max-w-310 mx-auto flex flex-col md:flex-row gap-5 justify-center md:justify-between items-center">
-          <a href="#home" className={"w-44"} onClick={handleNameClick}>
+          <Link to="/" className={"w-44"} onClick={handleNameClick}>
             <img src={theme === "light" ? lightLogo : darkLogo} alt="" className={cn("")} />
-          </a>
+          </Link>
 
           <div className="flex flex-wrap items-center justify-center gap-5">
             {SOCIALS.map(social => (
@@ -55,6 +56,4 @@ const Footer = () => {
       </div>
     </>
   );
-};
-
-export default Footer;
+}
