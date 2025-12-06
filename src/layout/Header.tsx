@@ -36,7 +36,8 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "p-3 border-b border-border sticky top-0 bg-background/70 backdrop-blur-sm backdrop-saturate-150"
+        "p-5 border-b border-border sticky top-0 bg-background"
+        // bg-background/70 backdrop-blur-sm backdrop-saturate-150 // glass morphism
       )}
     >
       <div
