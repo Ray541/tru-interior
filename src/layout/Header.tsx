@@ -17,7 +17,7 @@ import type { RootState } from "@/store/store";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Link } from "react-router-dom";
-import { GsapNavLink } from "@/components/gsap-components/gsap-nav-link";
+import { AnimatedNavLink } from "@/components/gsap-components/animated-nav-link";
 
 export default function Header() {
   const { theme } = useSelector((state: RootState) => state.theme);
@@ -51,17 +51,13 @@ export default function Header() {
             className="w-full h-auto"
           />
         </Link>
-
-        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center justify-center gap-5">
           {navs.map(nav => (
-            <GsapNavLink key={nav.label} to={`/${nav.path}`}>
+            <AnimatedNavLink key={nav.label} to={`/${nav.path}`} enableActive>
               {nav.label}
-            </GsapNavLink>
+            </AnimatedNavLink>
           ))}
         </nav>
-
-        {/* Mobile Menu */}
         <div className="lg:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -86,9 +82,14 @@ export default function Header() {
 
               <nav className="flex flex-col items-center gap-5">
                 {navs.map(nav => (
-                  <GsapNavLink key={nav.label} to={`/${nav.path}`} onClick={() => setIsOpen(false)}>
+                  <AnimatedNavLink
+                    key={nav.label}
+                    to={`/${nav.path}`}
+                    onClick={() => setIsOpen(false)}
+                    enableActive
+                  >
                     {nav.label}
-                  </GsapNavLink>
+                  </AnimatedNavLink>
                 ))}
               </nav>
 
