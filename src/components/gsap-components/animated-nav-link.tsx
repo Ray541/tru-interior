@@ -31,7 +31,7 @@ export function AnimatedNavLink({
       onMouseLeave={handleMouseLeave}
       className={cn(
         `relative inline-block font-normal ${textTransform} text-sm tracking-wider transition`,
-        isActive ? "text-muted-foreground" : "text-primary"
+        isActive ? "text-muted-foreground font-semibold" : "text-primary"
       )}
     >
       {children}
