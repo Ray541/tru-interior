@@ -238,4 +238,19 @@ html.lenis body {
       @apply absolute left-0 -bottom-1 bg-foreground;
     }
   }
+
+  .center-decorated {
+    @apply relative;
+
+    &::after {
+      content: "";
+      @apply absolute w-full h-px left-0 -bottom-1 bg-foreground;
+    }
+
+    &::before {
+      content: "";
+      @apply absolute h-1 left-1/2 -bottom-1 bg-foreground;
+      transform: translateX(-50%);
+    }
+  }
 }
