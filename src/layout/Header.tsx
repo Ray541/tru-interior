@@ -9,18 +9,13 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import lightLogo from "../../src/assets/images/light-small-logo.png";
-import darkLogo from "../../src/assets/images/dark-small-logo.png";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import type { RootState } from "@/store/store";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Link } from "react-router-dom";
 import { AnimatedNavLink } from "@/components/gsap-components/animated-nav-link";
 
 export default function Header() {
-  const { theme } = useSelector((state: RootState) => state.theme);
   const [isOpen, setIsOpen] = useState(false);
 
   const navs = [
@@ -34,22 +29,13 @@ export default function Header() {
   ];
 
   return (
-    <header
-      className={cn(
-        "p-5 border-b border-border sticky top-0 bg-background"
-        // bg-background/70 backdrop-blur-sm backdrop-saturate-150 // glass morphism
-      )}
-    >
+    <header className={cn("p-5 border-b border-border sticky top-0 bg-background z-50")}>
       <div
         className={cn("w-full max-w-340 mx-auto flex items-center justify-between md:border-none")}
       >
         {/* Logo */}
-        <Link to="/" className="w-35 md:w-44">
-          <img
-            src={theme === "light" ? lightLogo : darkLogo}
-            alt="Logo"
-            className="w-full h-auto"
-          />
+        <Link to="/" className="text-4xl font-black logo">
+          TRU
         </Link>
         <nav className="hidden lg:flex items-center justify-center gap-5">
           {navs.map(nav => (
@@ -68,12 +54,8 @@ export default function Header() {
             <SheetContent side="right" className="bg-background border border-border">
               <SheetHeader>
                 <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
-                <Link to="/" className="block w-34 mx-auto mb-5">
-                  <img
-                    src={theme === "light" ? lightLogo : darkLogo}
-                    alt="Logo"
-                    className="w-full h-auto"
-                  />
+                <Link to="/" className="text-4xl font-bold logo">
+                  TRU
                 </Link>
                 <SheetDescription className="sr-only">
                   Navigation links for the mobile menu.
