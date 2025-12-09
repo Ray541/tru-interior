@@ -214,3 +214,28 @@ html.lenis body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .logo {
+    @apply relative tracking-widest uppercase z-10;
+
+    &::after {
+      content: "TRU";
+      @apply absolute -z-1 w-full -left-0.5 -bottom-0.5 text-muted-foreground;
+    }
+  }
+
+  .heading-decorated {
+    @apply relative;
+
+    &::after {
+      content: "";
+      @apply absolute left-0 -bottom-1 bg-foreground;
+    }
+
+    &::before {
+      content: "";
+      @apply absolute left-0 -bottom-1 bg-foreground;
+    }
+  }
+}
