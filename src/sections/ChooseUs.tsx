@@ -29,7 +29,7 @@ export default function ChooseUs() {
       <div className="flex flex-col lg:flex-row items-center justify-between gap-5">
         <div className="flex-1 flex flex-col text-end items-end justify-between gap-3">
           <p className="w-full text-start text-muted-foreground text-lg">/ Why Choose Us /</p>
-          <h1 className="lg:w-3/4 text-4xl">
+          <h1 className="text-start text-4xl">
             Crafting Architectural <span className="text-muted-foreground">Excellence</span> With a{" "}
             <span className="text-muted-foreground">Passion</span> For{" "}
             <span className="text-muted-foreground">Innovation</span> and Timeless Design
